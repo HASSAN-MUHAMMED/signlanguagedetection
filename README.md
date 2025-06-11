@@ -47,5 +47,5 @@ This web-based system is designed to detect and translate sign language in real-
 
 ---
 
-## 📁 Project Structure
+### 📁 Project Structure
 
