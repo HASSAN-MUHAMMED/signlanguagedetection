@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Detection</title>
+</head>
+<body>
+    <h1>Sign Detection</h1>
+    <video id="video" autoplay style="width: 400px; height: auto;"></video>
+    <button id="capture">Capture</button>
+    <canvas id="canvas" style="display:none;"></canvas>
+    <p id="result"></p>
+
+    <script>
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const resultText = document.getElementById('result');
+        const captureBtn = document.getElementById('capture');
+
+        // Access the camera
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then((stream) => {
+                video.srcObject = stream;
+            })
+            .catch((err) => {
+                console.error("Error accessing the camera: ", err);
+            });
+
+        // Capture image and send to server
+        captureBtn.addEventListener('click', () => {
+            const context = canvas.getContext('2d');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            // Convert image to Base64
+            const dataURL = canvas.toDataURL('image/png');
+
+            // Send image to Flask server
+            fetch('http://127.0.0.1:5000/detect', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ data: dataURL })
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.error) {
+                    resultText.textContent = `Error: ${result.error}`;
+                } else {
+                    resultText.textContent = `Detected Character: ${result.result}`;
+                }
+            })
+            .catch(err => {
+                console.error("Error:", err);
+                resultText.textContent = "An error occurred.";
+            });
+        });
+    </script>
+</body>
+</html>
