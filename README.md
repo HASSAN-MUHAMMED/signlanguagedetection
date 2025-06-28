@@ -4,7 +4,7 @@
 
 A smart, interactive web-based system that detects and translates sign language in real-time using deep learning and computer vision. Designed to enhance communication between hearing-impaired individuals and the hearing community by recognizing hand gestures and converting them into readable text or audible speech.
 
----
+----
 
 ## 🚀 Key Features
 
