@@ -1,51 +1,55 @@
-# Sign Language Detection & Translation System 🧏‍♂️🤖
+# 🧏‍♂️ Sign Language Detection & Translation System 🤖
 
 ## 🎓 Graduation Project
 
-This web-based system is designed to detect and translate sign language in real-time, helping bridge the communication gap between hearing-impaired individuals and others. It combines computer vision and deep learning to recognize hand signs and translate them into text or speech.
+A smart, interactive web-based system that detects and translates sign language in real-time using deep learning and computer vision. Designed to enhance communication between hearing-impaired individuals and the hearing community by recognizing hand gestures and converting them into readable text or audible speech.
 
 ---
 
-## 🚀 Features
+## 🚀 Key Features
 
-- **Real-Time Detection Model**  
-  Uses a Random Forest classifier to recognize hand signs via webcam and build sentences letter by letter. Includes support for:
+- **🖐️ Real-Time Sign Language Detection**  
+  Utilizes a Random Forest classifier and webcam feed to detect alphabetic hand signs and dynamically construct words and sentences. Features include:
   - Adding spaces
   - Deleting characters
-  - Selecting predefined words
+  - Selecting predefined words or actions
 
-- **Image-Based Detection Model**  
-  Based on transfer learning using the VGG16 model to classify static images according to Indian Sign Language.
+- **🖼️ Image-Based Sign Classification**  
+  A custom CNN model trained on Indian Sign Language (ISL) to classify static images of hand gestures with high accuracy.
 
-- **Text-to-Sign Chatbot**  
-  A simple chatbot interface that converts typed text into sign language visuals for deaf users.
+- **💬 Text-to-Sign Language Chatbot**  
+  A user-friendly chatbot that converts typed sentences into a sequence of sign images to assist deaf users.
 
 ---
 
 ## 🛠️ Technologies Used
 
-- Python
-- OpenCV
-- TensorFlow / Keras
-- Scikit-learn (Random Forest)
-- VGG16 (Transfer Learning)
-- Flask / Django (if applicable)
-- HTML, CSS, JavaScript
+- **Frontend:** Angular, HTML, CSS, JavaScript  
+- **Backend:** Flask / Django (if applicable)  
+- **Machine Learning & Vision:**  
+  - Python  
+  - OpenCV  
+  - NumPy  
+  - MediaPipe  
+  - TensorFlow / Keras  
+  - Scikit-learn (Random Forest)  
+  - Custom CNN Model  
+- **Design:** Figma (for UI/UX prototypes)
 
 ---
 
 ## 🌐 How It Works
 
 1. **Real-Time Mode**  
-   Open your webcam and start performing sign gestures. The system will detect letters, build words/sentences, and display the results instantly.
+   Uses webcam input to detect hand gestures. The model processes each frame, classifies the sign, and displays the corresponding character on-screen, building full sentences.
 
 2. **Image Upload Mode**  
-   Upload or capture an image of a hand sign. The system will classify it using the VGG16 model trained on Indian Sign Language.
+   Upload or capture an image. The image is processed and passed to a CNN model for classification based on trained ISL data.
 
 3. **Chatbot Mode**  
-   Type any sentence, and the bot will return corresponding sign gestures to display for deaf users.
+   Enter any text, and the system will return visual sign language equivalents to communicate with deaf users.
 
 ---
 
-### 📁 Project Structure
+## 📦 Project Structure
 
